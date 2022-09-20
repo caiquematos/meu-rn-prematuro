@@ -14,6 +14,11 @@ export default function LogoHorizontal() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
   lineOneLogo: {
     textAlign: "center",
     alignItems: "baseline",
