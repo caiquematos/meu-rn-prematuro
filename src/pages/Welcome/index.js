@@ -1,26 +1,32 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  SafeAreaView,
+} from "react-native";
 import React from "react";
+import Logo from "../../components/Logo";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Welcome() {
+  const navigation = useNavigation();
   return (
-    <View style={styles.container}>
-      <View style={styles.containerLogo}>
-        <Image
-          source={require("../../assets/fp-purple.png")}
-          style={{ width: "100%" }}
-        />
-      </View>
+    <SafeAreaView style={styles.container}>
+      <Logo />
       <View style={styles.containerForm}>
-        <Text style={styles.title}>
-          Monitore, organize seus dados de qualquer lugar!
-        </Text>
+        <Text style={styles.title}>Cuide do seu bebê RN da melhor forma!</Text>
         <Text style={styles.text}>Faça o login para começar</Text>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("Signin")}
+        >
           <Text style={styles.buttonText}>Acessar</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -28,10 +34,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#9B3C94",
-  },
-  containerLogo: {
-    flex: 2,
-    backgroundColor: "red",
   },
   containerForm: {
     flex: 1,
@@ -50,7 +52,7 @@ const styles = StyleSheet.create({
   text: { color: "#a1a1a1" },
   button: {
     position: "absolute",
-    backgroundColor: "#38a69d",
+    backgroundColor: "#9B3C94",
     borderRadius: 50,
     paddingVertical: 8,
     width: "60%",

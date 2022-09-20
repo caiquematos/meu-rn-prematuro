@@ -4,16 +4,15 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
+  ScrollView,
   SafeAreaView,
 } from "react-native";
-import React from "react";
 
 import * as Animatable from "react-native-animatable";
 import { useNavigation } from "@react-navigation/native";
 
-export default function Signin() {
+export default function Signup() {
   const navigation = useNavigation();
-
   return (
     <SafeAreaView style={styles.container}>
       <Animatable.View
@@ -21,31 +20,33 @@ export default function Signin() {
         delay={500}
         style={styles.containerHeader}
       >
-        <Text style={styles.message}>Bem-vinda</Text>
+        <Text style={styles.message}>Cadastre-se</Text>
       </Animatable.View>
 
       <Animatable.View animation="fadeInUp" style={styles.containerForm}>
-        <Text style={styles.title}>Email</Text>
-        <TextInput placeholder="Digite um emeail..." style={styles.input} />
+        <ScrollView>
+          <Text style={styles.title}>Nome do bebê</Text>
+          <TextInput style={styles.input} />
 
-        <Text style={styles.title}>Senha</Text>
-        <TextInput placeholder="Sua senha" style={styles.input} />
+          <Text style={styles.title}>Data nascimento</Text>
+          <TextInput placeholder="10/10/2022" style={styles.input} />
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate("Home")}
-        >
-          <Text style={styles.buttonText}>Acessar</Text>
-        </TouchableOpacity>
+          <Text style={styles.title}>Idade gestacional corrigida</Text>
+          <TextInput placeholder="10" style={styles.input} />
 
-        <TouchableOpacity
-          style={styles.buttonRegister}
-          onPress={() => navigation.navigate("Signup")}
-        >
-          <Text style={styles.registerText}>
-            Não possui uma conta? Cadastre-se
-          </Text>
-        </TouchableOpacity>
+          <Text style={styles.title}>Peso (kg)</Text>
+          <TextInput placeholder="2" style={styles.input} />
+
+          <Text style={styles.title}>Data da alta hospitalar</Text>
+          <TextInput placeholder="10/11/2022" style={styles.input} />
+
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate("Signuptwo")}
+          >
+            <Text style={styles.buttonText}>Continuar</Text>
+          </TouchableOpacity>
+        </ScrollView>
       </Animatable.View>
     </SafeAreaView>
   );
